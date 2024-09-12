@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import logo from "./assets/logo.svg";
 import contact from "./assets/contact.svg";
 import person from "./assets/person.svg";
@@ -18,47 +18,75 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+function useHover() {
+  const [isOpen, setIsOpen] = useState(false);
+  const triggerRef = useRef(null);
+  const contentRef = useRef(null);
+
+  useEffect(() => {
+    const handleMouseEnter = () => setIsOpen(true);
+    const handleMouseLeave = (e) => {
+      if (!contentRef.current?.contains(e.relatedTarget)) {
+        setIsOpen(false);
+      }
+    };
+
+    const triggerElement = triggerRef.current;
+    const contentElement = contentRef.current;
+
+    triggerElement?.addEventListener("mouseenter", handleMouseEnter);
+    triggerElement?.addEventListener("mouseleave", handleMouseLeave);
+    contentElement?.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      triggerElement?.removeEventListener("mouseenter", handleMouseEnter);
+      triggerElement?.removeEventListener("mouseleave", handleMouseLeave);
+      contentElement?.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
+
+  return { isOpen, setIsOpen, triggerRef, contentRef };
+}
+
 export default function Header() {
-  const [isProductsMenuOpen, setIsProductsMenuOpen] = useState(false);
-
-  let timer;
-
-  const handleMouseEnter = () => {
-    clearTimeout(timer);
-    setIsProductsMenuOpen(true);
-  };
-
-  const handleMouseLeave = () => {
-    // Adding a small delay to avoid flickering
-    timer = setTimeout(() => {
-      setIsProductsMenuOpen(false);
-    }, 100);
-  };
-
+  const productsHover = useHover();
+  const startSellingHover = useHover();
+  const toolsAppsHover = useHover();
+  const pricingHover = useHover();
+  const resourcesHover = useHover();
+  const gelatoConnectHover = useHover();
   return (
-    <div className="Header sticky w-screen mx-auto top-0 font-sans font-semibold flex flex-col items-center">
+    <div className="Header sticky w-screen justify-center mx-auto top-0 font-sans font-semibold flex flex-col items-center">
       <div className="border-b-2 w-screen justify-between   flex  border-gray-300 ">
-        <div className="Top-Header py-3  mx-auto flex items-center justify-between  w-[76rem]  text-[14px] ">
+        <div className="Top-Header py-2  mx-auto flex items-center justify-between  w-[76rem]  text-[14px] ">
           <div className="logo flex - items-start  ">
             <img className="h-auto" alt="Logo" width={130} src={logo} />
           </div>
-          <div className="menu flex gap-1  items-center">
-            <button className="contact-Us flex px-3 gap-1">
-              <img src={contact} height={24} width={24} />
-              <h4>Contact us</h4>
-            </button>
-            <button className="IN/INR flex gap-1 px-3 py-1">
-              <img src={globe} height={24} width={24} />
-              <h4>IN/INR</h4>
-            </button>
-            <button className="Cart flex gap-1 px-3 py-1">
-              <img src={cart} height={24} width={24} />
-              <h4>Cart</h4>
-            </button>
-            <button className="Sign-In flex gap-1 px-3 py-1">
-              <img src={person} height={24} width={24} />
-              <h4>Sign in</h4>
-            </button>
+          <div className="menu flex gap-1 items-center">
+            <div className="hover:bg-slate-200 py-1 rounded-full">
+              <button className="contact-Us   flex px-3 gap-1">
+                <img src={contact} height={24} width={24} />
+                <h4>Contact us</h4>
+              </button>
+            </div>
+            <div className="hover:bg-slate-200 py-1 rounded-full">
+              <button className="IN/INR flex gap-1 px-3 py-1">
+                <img src={globe} height={24} width={24} />
+                <h4>IN/INR</h4>
+              </button>
+            </div>
+            <div className="hover:bg-slate-200 py-1 rounded-full">
+              <button className="Cart flex gap-1 px-3 py-1">
+                <img src={cart} height={24} width={24} />
+                <h4>Cart</h4>
+              </button>
+            </div>
+            <div className="hover:bg-slate-200 py-1 rounded-full">
+              <button className="Sign-In flex gap-1 px-3 py-1">
+                <img src={person} height={24} width={24} />
+                <h4>Sign in</h4>
+              </button>
+            </div>
 
             <button className="text-white px-3 py-2 bg-black rounded-full">
               Sign up for free
@@ -70,22 +98,25 @@ export default function Header() {
         <div className="w-[78rem] mx-auto">
           <div className="flex gap-2  items-center">
             {/* Products dropdown */}
-            <div
-              className="Products "
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              <DropdownMenu open={isProductsMenuOpen}>
+            <div className="Products ">
+              <DropdownMenu
+                open={productsHover.isOpen}
+                onOpenChange={productsHover.setIsOpen}
+              >
                 <DropdownMenuTrigger asChild className="">
                   <Button
                     className="flex border-none py-5 rounded-none items-center gap-1"
                     variant="outline"
+                    ref={productsHover.triggerRef}
                   >
                     <span>Products</span>
                     <FaAngleDown />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56 absolute left-[-55px] border-none shadow-none rounded-none bg-gray-200">
+                <DropdownMenuContent
+                  className="w-56 absolute left-[-55px] border-none shadow-none rounded-none bg-gray-200"
+                  ref={productsHover.contentRef}
+                >
                   <DropdownMenuGroup>
                     <DropdownMenuSub>
                       <DropdownMenuSubTrigger className="py-5 font-sans font-semibold px-4">
@@ -262,17 +293,24 @@ export default function Header() {
 
             {/* Start Selling */}
             <div className="Start Selling relative">
-              <DropdownMenu>
+              <DropdownMenu
+                open={startSellingHover.isOpen}
+                onOpenChange={startSellingHover.setIsOpen}
+              >
                 <DropdownMenuTrigger asChild>
                   <Button
                     className="flex border-none py-5 rounded-none items-center gap-2"
                     variant="outline"
+                    ref={startSellingHover.triggerRef}
                   >
                     <span>Start Selling</span>
                     <FaAngleDown />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56 absolute left-[-55px] border-none shadow-none rounded-none bg-gray-200">
+                <DropdownMenuContent
+                  className="w-56 absolute left-[-55px] border-none shadow-none rounded-none bg-gray-200"
+                  ref={startSellingHover.contentRef}
+                >
                   <DropdownMenuGroup>
                     <DropdownMenuItem className="font-sans font-semibold px-4 pb-5">
                       <span>Paint on demand</span>
@@ -319,17 +357,24 @@ export default function Header() {
 
             {/* Tools and apps */}
             <div className="Start Selling relative">
-              <DropdownMenu>
+              <DropdownMenu
+                open={toolsAppsHover.isOpen}
+                onOpenChange={toolsAppsHover.setIsOpen}
+              >
                 <DropdownMenuTrigger asChild>
                   <Button
                     className="flex border-none py-5 rounded-none items-center gap-2"
                     variant="outline"
+                    ref={toolsAppsHover.triggerRef}
                   >
                     <span>Tools and apps</span>
                     <FaAngleDown />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56 absolute left-[-55px] border-none shadow-none rounded-none bg-gray-200">
+                <DropdownMenuContent
+                  className="w-56 absolute left-[-55px] border-none shadow-none rounded-none bg-gray-200"
+                  ref={toolsAppsHover.contentRef}
+                >
                   <DropdownMenuGroup>
                     <DropdownMenuItem className="font-sans font-semibold px-4 pb-5">
                       <span>Tools and app overview</span>
@@ -373,17 +418,24 @@ export default function Header() {
 
             {/*Pricing */}
             <div className="Pricing relative">
-              <DropdownMenu>
+              <DropdownMenu
+                open={pricingHover.isOpen}
+                onOpenChange={pricingHover.setIsOpen}
+              >
                 <DropdownMenuTrigger asChild>
                   <Button
                     className="flex border-none py-5 rounded-none items-center gap-2"
                     variant="outline"
+                    ref={pricingHover.triggerRef}
                   >
                     <span>Pricing</span>
                     <FaAngleDown />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56 absolute left-[-55px] border-none shadow-none rounded-none bg-gray-200">
+                <DropdownMenuContent
+                  className="w-56 absolute left-[-55px] border-none shadow-none rounded-none bg-gray-200"
+                  ref={pricingHover.contentRef}
+                >
                   <DropdownMenuGroup>
                     <DropdownMenuItem className="font-sans font-semibold px-4 pb-5">
                       <span>Payment and Pricing</span>
@@ -414,17 +466,24 @@ export default function Header() {
 
             {/*Resources */}
             <div className="Resources relative">
-              <DropdownMenu>
+              <DropdownMenu
+                open={resourcesHover.isOpen}
+                onOpenChange={resourcesHover.setIsOpen}
+              >
                 <DropdownMenuTrigger asChild>
                   <Button
                     className="flex border-none py-5 rounded-none items-center gap-2"
                     variant="outline"
+                    ref={resourcesHover.triggerRef}
                   >
                     <span>Resources</span>
                     <FaAngleDown />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56 absolute left-[-55px] border-none shadow-none rounded-none bg-gray-200">
+                <DropdownMenuContent
+                  className="w-56 absolute left-[-55px] border-none shadow-none rounded-none bg-gray-200"
+                  ref={resourcesHover.contentRef}
+                >
                   <DropdownMenuGroup>
                     <DropdownMenuItem className="font-sans font-semibold px-4 pb-5">
                       <span>Resource Center</span>
@@ -483,17 +542,24 @@ export default function Header() {
 
             {/*GelatoConnect */}
             <div className="Gelato-Connect relative">
-              <DropdownMenu>
+              <DropdownMenu
+                open={gelatoConnectHover.isOpen}
+                onOpenChange={gelatoConnectHover.setIsOpen}
+              >
                 <DropdownMenuTrigger asChild>
                   <Button
                     className="flex border-none py-5 rounded-none items-center gap-2"
                     variant="outline"
+                    ref={gelatoConnectHover.triggerRef}
                   >
                     <span>GelatoConnect</span>
                     <FaAngleDown />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56 absolute left-[-55px] border-none shadow-none rounded-none bg-gray-200">
+                <DropdownMenuContent
+                  className="w-56 absolute left-[-55px] border-none shadow-none rounded-none bg-gray-200"
+                  ref={gelatoConnectHover.contentRef}
+                >
                   <DropdownMenuGroup>
                     <DropdownMenuItem className="font-sans font-semibold px-4 pb-5">
                       <span>GelatoConnect</span>
