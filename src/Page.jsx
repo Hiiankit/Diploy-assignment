@@ -321,19 +321,19 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="flex justify-between items-center  pb-10">
-            <div className="flex">
+          <div className=" items-center  pb-10">
+            <div className="flex justify-between items-center">
               <div className="text-white text-[12px] flex gap-2">
-                <p className="::after">Contact us </p> | <p>Legal</p>|{" "}
-                <p>Privacy policy</p>|<p>Cookie policy</p>|<p>API terms</p>|{" "}
+                <p className="">Contact us </p> | <p>Legal</p>|
+                <p>Privacy policy</p>|<p>Cookie policy</p>|<p>API terms</p>|
                 <p>Sitemap</p>
               </div>
-            </div>
-            <div className="border-white border-2 ">
-              <select className=" text-white px-2 py-1 border-none border-white border-2  bg-black">
-                <option className="border-none ">Hindi</option>
-                <option>English</option>
-              </select>
+              <div className="border-white border-2 ">
+                <select className=" text-white px-2 py-1 border-none border-white border-2  bg-black">
+                  <option className="border-none ">Hindi</option>
+                  <option>English</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>
