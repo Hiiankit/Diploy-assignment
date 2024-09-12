@@ -2,7 +2,7 @@ import Header from "./Header";
 import Page from "./Page";
 function App() {
   return (
-    <div className="container w-screen">
+    <div className="">
       <div className="hello-Bar items-center flex justify-center bg-black  p-2">
         <p className="text-white">
           FREE SHIPPING for orders over $300. Order today <span></span>
