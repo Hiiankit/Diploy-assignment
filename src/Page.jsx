@@ -3,10 +3,19 @@ import main from "./assets/main.webp";
 import { Button } from "./components/ui/button";
 import shopify from "./assets/shopify.svg";
 import star from "./assets/star.svg";
+import apple from "./assets/apple.svg";
+import play from "./assets/playstore.svg";
+
 import girl from "./assets/Girl.png";
 import anim from "./assets/animated.gif";
 import anim2 from "./assets/phoneanim.gif";
 import printing from "./assets/printing.webp";
+import logo from "./assets/whitelogo.svg";
+import { GrInstagram } from "react-icons/gr";
+import { FaFacebook } from "react-icons/fa6";
+import { FaTiktok } from "react-icons/fa6";
+import { RiYoutubeLine } from "react-icons/ri";
+import { FaLinkedinIn } from "react-icons/fa";
 
 export default function Page() {
   return (
@@ -191,7 +200,7 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="bg-[#faf6ef] my-5 py-5 w-full flex items-center justify-center">
+      <div className="bg-[#faf6ef] mt-5 py-5 w-full flex items-center justify-center">
         <div className="flex w-[77rem] gap-10 ">
           <div className="flex flex-col w-[60%]  font-sans justify-center">
             <h1 className="text-6xl font-semibold flex mb-4 flex-col ">
@@ -209,6 +218,123 @@ export default function Page() {
           </div>
           <div>
             <img src={printing} width={800} />
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-black w-screen">
+        <div className="w-[77rem] mx-auto">
+          <div className="flex py-5 justify-between">
+            <div>
+              <img src={logo} className="w-[130px]" />
+            </div>
+            <div className=" flex gap-8  items-center mr-10  ">
+              <h1 className="text-white text-[16px]">Find Gelato on:</h1>
+              <GrInstagram className="text-white size-5 " />
+              <FaFacebook className="text-white size-5" />
+              <FaTiktok className="text-white size-5" />
+              <FaLinkedinIn className="text-white size-5" />
+              <RiYoutubeLine className="text-white size-5" />
+            </div>
+          </div>
+          <div className="flex">
+            <div className="flex  gap-4 flex-col mr-[48px]">
+              <span className="text-white w-[360px] text-[12px]">
+                Gelato has created the world's largest network for local
+                production and distribution of customized products. Together we
+                bring creativity to life - and into business.
+              </span>
+              <div>
+                <Button className="rounded-full bg-white text-black">
+                  Get started
+                </Button>
+              </div>
+              <p>Get the app</p>
+              <div className="flex gap-3">
+                <img src={apple} />
+                <img src={play} />
+              </div>
+            </div>
+
+            <div className="text-white mr-[48px]">
+              <h1 className="text-[16px] mb-4">Print on demand</h1>
+              <div className="text-white space-y-1 text-[12px]">
+                <p>What is print on demand? </p>
+                <p>Product catalog</p>
+                <p>Shipping and delivery</p>
+                <p>Dropshipping products</p>
+                <p>Pro sellers</p>
+                <p>White label products</p>
+                <p>Returns policy</p>
+                <p>Global, yet local</p>
+                <p>Susstainablity</p>
+                <p>Support</p>
+              </div>
+            </div>
+
+            <div className="text-white mr-[48px]">
+              <h1 className="text-[16px] mb-4">Integrations</h1>
+              <div className="text-white space-y-1 text-[12px]">
+                <p>Shopify</p>
+                <p>Etsy</p>
+                <p>WooCommerce</p>
+                <p>Wix</p>
+                <p>Squarespace</p>
+                <p>BigCommerce</p>
+                <p>API</p>
+              </div>
+            </div>
+
+            <div className="text-white mr-[48px]">
+              <h1 className="text-[16px] mb-4">Start selling </h1>
+              <div className="text-white space-y-1 text-[12px]">
+                <p>Embroidery</p>
+                <p>Print on demand t-shirts</p>
+                <p>Print on demand hoodies</p>
+                <p>Print on demand posters</p>
+                <p>Print on demand calendars</p>
+                <p>Print on demand mugs</p>
+                <p>Custom merchandise</p>
+                <p>Custom phone cases</p>
+                <p>Print on demand Europe</p>
+                <p>Print on demand UK</p>
+                <p>Print on demand France</p>
+                <p>Print on demand Canada</p>
+                <p>Merch maker</p>
+              </div>
+            </div>
+
+            <div className="text-white">
+              <h1 className="text-[16px] mb-4">Company </h1>
+              <div className="text-white space-y-1 text-[12px]">
+                <p>GelatoConnect</p>
+                <p>About Gelato</p>
+                <p>Leadership team</p>
+                <p>Board & investors</p>
+                <p>Newsroom</p>
+                <p>Blog</p>
+                <p>Customer Stories</p>
+                <p>Partners</p>
+                <p>Careers</p>
+                <p>Affiliates program</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex justify-between items-center  pb-10">
+            <div className="flex">
+              <div className="text-white text-[12px] flex gap-2">
+                <p className="::after">Contact us </p> | <p>Legal</p>|{" "}
+                <p>Privacy policy</p>|<p>Cookie policy</p>|<p>API terms</p>|{" "}
+                <p>Sitemap</p>
+              </div>
+            </div>
+            <div className="border-white border-2 ">
+              <select className=" text-white px-2 py-1 border-none border-white border-2  bg-black">
+                <option className="border-none ">Hindi</option>
+                <option>English</option>
+              </select>
+            </div>
           </div>
         </div>
       </div>
