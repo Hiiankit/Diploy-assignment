@@ -36,9 +36,9 @@ export default function Header() {
   };
 
   return (
-    <div className="Header sticky top-0 font-sans font-semibold flex flex-col items-center">
+    <div className="Header sticky w-screen mx-auto top-0 font-sans font-semibold flex flex-col items-center">
       <div className="border-b-2 w-screen justify-between   flex  border-gray-300 ">
-        <div className="Top-Header py-3  mx-auto flex items-center justify-between  w-[76rem] text-[14px] ">
+        <div className="Top-Header py-3  mx-auto flex items-center justify-between  w-[76rem]  text-[14px] ">
           <div className="logo flex - items-start  ">
             <img className="h-auto" alt="Logo" width={130} src={logo} />
           </div>
