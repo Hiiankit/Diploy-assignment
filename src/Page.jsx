@@ -321,7 +321,7 @@ export default function Page() {
             </div>
           </div>
 
-          <div className=" items-center  pb-10">
+          <div className=" items-center box-content mx-auto pb-10">
             <div className="flex justify-between items-center">
               <div className="text-white text-[12px] flex gap-2">
                 <p className="">Contact us </p> | <p>Legal</p>|
