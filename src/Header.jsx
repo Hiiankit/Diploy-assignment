@@ -37,9 +37,9 @@ export default function Header() {
 
   return (
     <div className="Header sticky top-0 font-sans font-semibold flex flex-col items-center">
-      <div className="border-b-2 w-full justify-center  flex  border-gray-300 ">
-        <div className="Top-Header py-3 flex w-4/5 items-center text-[14px] justify-between">
-          <div className="logo">
+      <div className="border-b-2 w-screen justify-between   flex  border-gray-300 ">
+        <div className="Top-Header py-3  mx-auto flex items-center justify-between  w-[76rem] text-[14px] ">
+          <div className="logo flex - items-start  ">
             <img className="h-auto" alt="Logo" width={130} src={logo} />
           </div>
           <div className="menu flex gap-1  items-center">
@@ -66,9 +66,9 @@ export default function Header() {
           </div>
         </div>
       </div>
-      <div className="nev-bar border-b-2 w-full flex items-center justify-center border-gray-200">
-        <div className="relative left-[-12%]">
-          <div className="flex w-4/5 gap-2 justify-start items-center">
+      <div className="nev-bar  border-b-2 w-full flex  border-gray-200">
+        <div className="w-[78rem] mx-auto">
+          <div className="flex gap-2  items-center">
             {/* Products dropdown */}
             <div
               className="Products "

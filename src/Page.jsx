@@ -11,7 +11,7 @@ import printing from "./assets/printing.webp";
 export default function Page() {
   return (
     <div className="Page-container flex flex-col items-center justify-center">
-      <div className="1st-content mt-3 py-4  w-[80%] grid grid-cols-2">
+      <div className="1st-content mt-3 py-4  w-[77rem] grid grid-cols-2">
         <div className=" pt-10 pl-10">
           <h1 className="font-sans font-medium mb-5  text-6xl">
             Print on demand for your ecommerce business
@@ -53,8 +53,8 @@ export default function Page() {
           <img src={main} width={700} />
         </div>
       </div>
-      <div className="bg-[#faf6ef] mb-5 py-10 flex items-center justify-center  w-full">
-        <div className="flex justify-between gap-32 ">
+      <div className="bg-[#faf6ef] mb-5 py-10 flex items-center justify-center  w-screen">
+        <div className="flex justify-between gap-28 ">
           <div className=" flex justify-center items-center  flex-col w-[300px]">
             <h1 className="text-[32px] font-semibold">90%</h1>
             <p className="text-[24px] font-medium text-center">
@@ -81,7 +81,7 @@ export default function Page() {
 
       <div className="flex justify-center items-center flex-col">
         <h1 className="text-[60px] font-semibold">Why choose Gelato</h1>
-        <div className="flex flex-row w-[90%]  ">
+        <div className="flex flex-row w-[77rem]  ">
           <div className="w-[50%] h-auto">
             <img className="" width={800} src={girl} />
           </div>
@@ -146,7 +146,7 @@ export default function Page() {
       </div>
 
       <div className="bg-[#faf6ef] my-5 py-5 w-full flex items-center justify-center">
-        <div className="flex w-[80%] gap-10 ">
+        <div className="flex w-[77rem] gap-10 ">
           <div className="flex flex-col w-[55%]  font-sans justify-center">
             <p className="text-lg mb-2 font-medium">
               For print on demand sellers
@@ -169,7 +169,7 @@ export default function Page() {
       </div>
 
       <div className="my-5 py-5 w-full flex items-center justify-center">
-        <div className="flex w-[80%] gap-10">
+        <div className="flex w-[77rem] gap-10">
           <div className="flex  justify-center items-center">
             <div className="flex ">
               <img src={anim2} width={700} />
@@ -192,7 +192,7 @@ export default function Page() {
       </div>
 
       <div className="bg-[#faf6ef] my-5 py-5 w-full flex items-center justify-center">
-        <div className="flex w-[80%] gap-10 ">
+        <div className="flex w-[77rem] gap-10 ">
           <div className="flex flex-col w-[60%]  font-sans justify-center">
             <h1 className="text-6xl font-semibold flex mb-4 flex-col ">
               Meet GelatoConnect at Printing United

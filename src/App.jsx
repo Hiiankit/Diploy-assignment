@@ -8,10 +8,10 @@ function App() {
           FREE SHIPPING for orders over $300. Order today <span></span>
         </p>
       </div>
-      <div className="Header sticky top-0 bg-white">
+      <div className="Header sticky top-0 flex items-center justify-center bg-white">
         <Header />
       </div>
-      <div>
+      <div className="flex justify-center items-center">
         <Page />
       </div>
     </div>
