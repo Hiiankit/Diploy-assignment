@@ -241,7 +241,7 @@ export default function Page() {
       </div>
 
       <div className="bg-black w-screen">
-        <div className="w-full md:w-[77rem] mx-auto">
+        <div className="w-full px-5 md:px-2 md:w-[77rem] mx-auto">
           {/* Header Section */}
           <div className="flex flex-col md:flex-row py-5 justify-between items-center">
             <div>
@@ -352,8 +352,8 @@ export default function Page() {
           </div>
 
           {/* Footer Section */}
-          <div className="w-full items-center box-content mx-auto pb-10">
-            <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="w-full items-center  box-content mx-auto pb-10">
+            <div className="flex flex-col  md:flex-row justify-between items-center">
               <div className="text-white text-[12px] flex flex-wrap gap-2 text-center md:text-left">
                 <p>Contact us</p>
                 <p>|</p>

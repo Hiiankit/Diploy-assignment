@@ -107,7 +107,7 @@ export default function Header() {
 
           {/* Mobile Menu Items */}
           <div
-            className={`md:hidden fixed top-0 left-0 w-full bg-white border-b-2 border-gray-300 transition-transform ${
+            className={`md:hidden fixed top-0 left-0 md:w-full rounded-xl bg-white border-b-2 border-gray-300 transition-transform ${
               isMenuOpen
                 ? "transform translate-y-0"
                 : "transform -translate-y-full"
