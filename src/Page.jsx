@@ -19,55 +19,56 @@ import { FaLinkedinIn } from "react-icons/fa";
 
 export default function Page() {
   return (
-    <div className="Page-container flex flex-col items-center justify-center">
-      <div className="1st-content mt-3 py-4  w-[77rem] grid grid-cols-2">
-        <div className=" pt-10 pl-10">
-          <h1 className="font-sans font-medium mb-5  text-6xl">
+    <div className="Page-container flex   flex-col items-center justify-center">
+      <div className="1st-content mt-3 md:bg-white md:px-0  bg-[#faf6ef]   py-4  max-w-[77rem] grid grid-cols-1 md:grid-cols-2 gap-5  px-4 ">
+        <div className="flex justify-center order-1 md:order-2">
+          <img src={main} className="w-full max-w-[300px] md:max-w-[600px]" />
+        </div>
+        <div className="flex flex-col items-start  pt-10 pl-0 md:pl-10 order-2 md:order-1 max-w-[300px] md:max-w-[700px]">
+          <h1 className="font-sans font-medium mb-5 text-3xl md:text-6xl">
             Print on demand for your ecommerce business
           </h1>
-          <p className="font-sans font-semibold mb-2 text-2xl">
+          <p className="font-sans font-semibold mb-2 text-xl md:text-2xl">
             Sign up for free and only pay for what you sell
           </p>
-          <p className="font-sans text-lg ">
+          <p className="font-sans text-base md:text-lg">
             Turn your passion into profit with the world's largest{" "}
-            <span
-              className="
-            underline"
-            >
-              print on demand
-            </span>{" "}
-            network
+            <span className="underline">print on demand</span> network
           </p>
-          <div className=" flex gap-4 mt-5">
-            <Button className="rounded-full">Get started for free</Button>
-            <Button className="rounded-full text-black bg-white border border-black">
-              See our products
-            </Button>
+          <div className="flex flex-col md:flex-row items-center gap-4 mt-5">
+            <div>
+              <Button className="rounded-full bg-black text-white hover:text-zinc-400 hover:bg-black">
+                Get started for free
+              </Button>
+            </div>
+            <div>
+              <Button className="rounded-full hover:bg-zinc-300 text-black bg-white border border-black">
+                See our products
+              </Button>
+            </div>
           </div>
           <div className="py-5">
-            <img src={shopify} width={150} />
+            <img src={shopify} width={100} className="md:w-[150px]" />
             <div className="flex gap-1 pt-1">
-              <img src={star} width={20} />
-              <img src={star} width={20} />
-              <img src={star} width={20} />
-              <img src={star} width={20} />
-              <img src={star} width={20} />
-
-              <p className="font-sans text-[16px]">4.8/5</p>
+              <img src={star} width={15} className="md:w-[20px]" />
+              <img src={star} width={15} className="md:w-[20px]" />
+              <img src={star} width={15} className="md:w-[20px]" />
+              <img src={star} width={15} className="md:w-[20px]" />
+              <img src={star} width={15} className="md:w-[20px]" />
+              <p className="font-sans text-sm md:text-[16px]">4.8/5</p>
             </div>
-            <p className="font-sans text-[16px]">based on 887 reviews</p>
+            <p className="font-sans text-sm md:text-[16px]">
+              based on 887 reviews
+            </p>
           </div>
         </div>
-        <div className="">
-          <img src={main} width={700} />
-        </div>
       </div>
-      <div className="bg-[#faf6ef] mb-5 py-10 flex items-center justify-center  w-screen">
-        <div className="flex justify-between gap-28 ">
-          <div className=" flex justify-center items-center  flex-col w-[300px]">
+
+      <div className="bg-[#faf6ef] mb-5 py-10  items-center justify-center w-screen  hidden md:flex">
+        <div className="flex justify-between gap-28">
+          <div className="flex justify-center items-center flex-col w-[300px]">
             <h1 className="text-[32px] font-semibold">90%</h1>
             <p className="text-[24px] font-medium text-center">
-              {" "}
               of all orders are produced locally
             </p>
           </div>
@@ -79,7 +80,7 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="flex justify-center items-center  flex-col w-[300px]">
+          <div className="flex justify-center items-center flex-col w-[300px]">
             <h1 className="text-[32px] font-semibold">140+</h1>
             <p className="text-[24px] font-medium text-center">
               print providers across 32 countries
@@ -88,18 +89,22 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="flex justify-center items-center flex-col">
-        <h1 className="text-[60px] font-semibold">Why choose Gelato</h1>
-        <div className="flex flex-row w-[77rem]  ">
-          <div className="w-[50%] h-auto">
-            <img className="" width={800} src={girl} />
+      <div className="flex justify-center items-center max-w-[350px] md:max-w-[600px] flex-col">
+        <h1 className="text-[30px] md:mt-0 mt-3  md:text-[60px] font-semibold text-center">
+          Why choose Gelato
+        </h1>
+
+        <div className="flex flex-col md:flex-row w-full md:w-[77rem]">
+          <div className="md:w-[50%] w-full h-auto flex justify-center md:justify-start">
+            <img className="w-[100%] md:w-[800px]" src={girl} alt="girl" />
           </div>
-          <div className=" py-9">
-            <h1 className="text-2xl mb-2 font-medium ">
+
+          <div className="py-6 md:py-9 md:w-[50%] w-full px-4 md:px-0">
+            <h1 className="text-2xl mb-2 font-medium">
               ▻World's largest print-on-demand network
             </h1>
             <p className="text-base font-light mb-4">
-              140+ print partners in 32 contries.Gelato is truely global
+              140+ print partners in 32 countries. Gelato is truly a global
               service.
             </p>
 
@@ -116,11 +121,11 @@ export default function Page() {
             </h1>
             <p className="text-base font-light mb-4">
               Create your custom products using our suite of{" "}
-              <span className="underline">free tools</span>
+              <span className="underline">free tools</span>.
             </p>
 
             <h1 className="text-2xl font-medium mb-2">
-              ▻60+logistics partners
+              ▻60+ logistics partners
             </h1>
             <p className="text-base font-light mb-4">
               Our global network of logistics partners ensures your products are
@@ -128,7 +133,7 @@ export default function Page() {
             </p>
 
             <h1 className="text-2xl font-medium mb-2">
-              ▻ High-quality products
+              ▻High-quality products
             </h1>
             <p className="text-base font-light mb-4">
               We partner with the world's leading brands to ensure the best
@@ -136,7 +141,7 @@ export default function Page() {
             </p>
 
             <h1 className="text-2xl font-medium mb-2">
-              ▻ Endless creativity with Shutterstock Images
+              ▻Endless creativity with Shutterstock Images
             </h1>
             <p className="text-base font-light mb-4">
               Access millions of images and graphics to create unique products
@@ -144,11 +149,11 @@ export default function Page() {
             </p>
 
             <h1 className="text-2xl font-medium mb-2">
-              ▻ 1-click integration to the leading ecommerce platforms
+              ▻1-click integration to the leading ecommerce platforms
             </h1>
             <p className="text-base font-light mb-4">
               Connect your store to Gelato using our integrations with Shopify,
-              Etsy and more.
+              Etsy, and more.
             </p>
           </div>
         </div>

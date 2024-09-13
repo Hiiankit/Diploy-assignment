@@ -6,6 +6,8 @@ import globe from "./assets/globe.svg";
 import cart from "./assets/cart.svg";
 import { Button } from "@/components/ui/button";
 import { FaAngleDown } from "react-icons/fa6";
+import { IoMenu } from "react-icons/io5";
+import { IoMdClose } from "react-icons/io";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -49,6 +51,9 @@ function useHover() {
 }
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const productsHover = useHover();
   const startSellingHover = useHover();
   const toolsAppsHover = useHover();
@@ -56,46 +61,104 @@ export default function Header() {
   const resourcesHover = useHover();
   const gelatoConnectHover = useHover();
   return (
-    <div className="Header sticky w-screen justify-center mx-auto top-0 font-sans font-semibold flex flex-col items-center">
-      <div className="border-b-2 w-screen justify-between   flex  border-gray-300 ">
-        <div className="Top-Header py-2  mx-auto flex items-center justify-between  w-[76rem]  text-[14px] ">
-          <div className="logo flex - items-start  ">
+    <div className="Header sticky w-screen md:w-full justify-center mx-auto top-0 font-sans font-semibold flex flex-col items-center">
+      <div className="border-b-2 w-screen flex justify-between border-gray-300">
+        <div className="Top-Header py-2 mx-auto flex items-center lg:justify-between   w-full sm:w-[76rem] text-[14px]">
+          {/* Logo */}
+          <button
+            className="md:hidden flex items-center px-1 py-2"
+            onClick={toggleMenu}
+          >
+            <IoMenu className="size-8" />
+          </button>
+          <div className="logo flex gap items-start">
             <img className="h-auto" alt="Logo" width={130} src={logo} />
           </div>
-          <div className="menu flex gap-1 items-center">
-            <div className="hover:bg-slate-200 py-1 rounded-full">
-              <button className="contact-Us   flex px-3 gap-1">
+
+          {/* Menu Items for Desktop */}
+          <div className="hidden md:flex gap-1 items-center">
+            <button className="hover:bg-slate-200 py-1 rounded-full flex items-center px-3 gap-1">
+              <img src={contact} height={24} width={24} />
+              <h4>Contact us</h4>
+            </button>
+            <button className="hover:bg-slate-200 py-1 rounded-full flex items-center px-3 gap-1">
+              <img src={globe} height={24} width={24} />
+              <h4>IN/INR</h4>
+            </button>
+            <button className="hover:bg-slate-200 py-1 rounded-full flex items-center px-3 gap-1">
+              <img src={cart} height={24} width={24} />
+              <h4>Cart</h4>
+            </button>
+            <button className="hover:bg-slate-200 py-1 rounded-full flex items-center px-3 gap-1">
+              <img src={person} height={24} width={24} />
+              <h4>Sign in</h4>
+            </button>
+
+            <button className="text-white px-3  py-2 bg-black rounded-full">
+              Sign up for free
+            </button>
+          </div>
+
+          {/* Mobile Menu Toggle Button */}
+
+          <button className="text-white ml-14 md:hidden px-3 py-2 bg-black rounded-full">
+            Sign up for free
+          </button>
+
+          {/* Mobile Menu Items */}
+          <div
+            className={`md:hidden fixed top-0 left-0 w-full bg-white border-b-2 border-gray-300 transition-transform ${
+              isMenuOpen
+                ? "transform translate-y-0"
+                : "transform -translate-y-full"
+            }`}
+          >
+            <div className="flex justify-between items-center px-4 py-2">
+              <button
+                className="flex items-center px-3 py-2"
+                onClick={toggleMenu}
+              >
+                <IoMdClose className="size-8" />
+              </button>
+              <button className="text-white px-3 py-2 bg-black rounded-full">
+                Sign up for free
+              </button>
+            </div>
+            <div className="py-2 px-4 flex flex-col items-start">
+              <button
+                className="flex items-center gap-1 py-2"
+                onClick={toggleMenu}
+              >
                 <img src={contact} height={24} width={24} />
                 <h4>Contact us</h4>
               </button>
-            </div>
-            <div className="hover:bg-slate-200 py-1 rounded-full">
-              <button className="IN/INR flex gap-1 px-3 py-1">
+              <button
+                className="flex items-center gap-1 py-2"
+                onClick={toggleMenu}
+              >
                 <img src={globe} height={24} width={24} />
                 <h4>IN/INR</h4>
               </button>
-            </div>
-            <div className="hover:bg-slate-200 py-1 rounded-full">
-              <button className="Cart flex gap-1 px-3 py-1">
+              <button
+                className="flex items-center gap-1 py-2"
+                onClick={toggleMenu}
+              >
                 <img src={cart} height={24} width={24} />
                 <h4>Cart</h4>
               </button>
-            </div>
-            <div className="hover:bg-slate-200 py-1 rounded-full">
-              <button className="Sign-In flex gap-1 px-3 py-1">
+              <button
+                className="flex items-center gap-1 py-2"
+                onClick={toggleMenu}
+              >
                 <img src={person} height={24} width={24} />
                 <h4>Sign in</h4>
               </button>
             </div>
-
-            <button className="text-white px-3 py-2 bg-black rounded-full">
-              Sign up for free
-            </button>
           </div>
         </div>
       </div>
-      <div className="nev-bar  border-b-2 w-full flex  border-gray-200">
-        <div className="w-[78rem] mx-auto">
+      <div className="nev-bar hidden md:flex  border-b-2 w-full  border-gray-200 ">
+        <div className="w-[78rem]  mx-auto">
           <div className="flex gap-2  items-center">
             {/* Products dropdown */}
             <div className="Products ">
@@ -122,18 +185,15 @@ export default function Header() {
                       <DropdownMenuSubTrigger className="py-5 font-sans font-semibold px-4">
                         <span>Best Sellers</span>
                       </DropdownMenuSubTrigger>
-                      <DropdownMenuPortal>
+                      <DropdownMenuPortal className="bg-white">
                         <DropdownMenuSubContent>
                           <DropdownMenuItem>
-                            <span className="mr-2">👕</span>
                             <span>Shirts</span>
                           </DropdownMenuItem>
                           <DropdownMenuItem>
-                            <span className="mr-2">👖</span>
                             <span>Pants</span>
                           </DropdownMenuItem>
                           <DropdownMenuItem>
-                            <span className="mr-2">👞</span>
                             <span>Shoes</span>
                           </DropdownMenuItem>
                         </DropdownMenuSubContent>
@@ -147,15 +207,12 @@ export default function Header() {
                       <DropdownMenuPortal>
                         <DropdownMenuSubContent>
                           <DropdownMenuItem>
-                            <span className="mr-2">👕</span>
                             <span>Shirts</span>
                           </DropdownMenuItem>
                           <DropdownMenuItem>
-                            <span className="mr-2">👖</span>
                             <span>Pants</span>
                           </DropdownMenuItem>
                           <DropdownMenuItem>
-                            <span className="mr-2">👞</span>
                             <span>Shoes</span>
                           </DropdownMenuItem>
                         </DropdownMenuSubContent>
@@ -168,15 +225,12 @@ export default function Header() {
                       <DropdownMenuPortal>
                         <DropdownMenuSubContent>
                           <DropdownMenuItem>
-                            <span className="mr-2">👗</span>
                             <span>Dresses</span>
                           </DropdownMenuItem>
                           <DropdownMenuItem>
-                            <span className="mr-2">👖</span>
                             <span>Pants</span>
                           </DropdownMenuItem>
                           <DropdownMenuItem>
-                            <span className="mr-2">👠</span>
                             <span>Shoes</span>
                           </DropdownMenuItem>
                         </DropdownMenuSubContent>
@@ -187,44 +241,12 @@ export default function Header() {
                       <DropdownMenuSubTrigger className="pb-5 font-sans font-semibold px-4">
                         <span>Kid's & baby Clothing</span>
                       </DropdownMenuSubTrigger>
-                      <DropdownMenuPortal>
-                        <DropdownMenuSubContent>
-                          <DropdownMenuItem>
-                            <span className="mr-2">👗</span>
-                            <span>Dresses</span>
-                          </DropdownMenuItem>
-                          <DropdownMenuItem>
-                            <span className="mr-2">👖</span>
-                            <span>Pants</span>
-                          </DropdownMenuItem>
-                          <DropdownMenuItem>
-                            <span className="mr-2">👠</span>
-                            <span>Shoes</span>
-                          </DropdownMenuItem>
-                        </DropdownMenuSubContent>
-                      </DropdownMenuPortal>
                     </DropdownMenuSub>
 
                     <DropdownMenuSub>
                       <DropdownMenuSubTrigger className="pb-5 font-sans font-semibold px-4">
                         <span>Wall arts</span>
                       </DropdownMenuSubTrigger>
-                      <DropdownMenuPortal>
-                        <DropdownMenuSubContent>
-                          <DropdownMenuItem>
-                            <span className="mr-2">👗</span>
-                            <span>Dresses</span>
-                          </DropdownMenuItem>
-                          <DropdownMenuItem>
-                            <span className="mr-2">👖</span>
-                            <span>Pants</span>
-                          </DropdownMenuItem>
-                          <DropdownMenuItem>
-                            <span className="mr-2">👠</span>
-                            <span>Shoes</span>
-                          </DropdownMenuItem>
-                        </DropdownMenuSubContent>
-                      </DropdownMenuPortal>
                     </DropdownMenuSub>
 
                     <DropdownMenuItem className="pb-5 font-sans font-semibold px-4">
@@ -239,44 +261,12 @@ export default function Header() {
                       <DropdownMenuSubTrigger className="pb-5 font-sans font-semibold px-4">
                         <span>Photo books</span>
                       </DropdownMenuSubTrigger>
-                      <DropdownMenuPortal>
-                        <DropdownMenuSubContent>
-                          <DropdownMenuItem>
-                            <span className="mr-2">👗</span>
-                            <span>Dresses</span>
-                          </DropdownMenuItem>
-                          <DropdownMenuItem>
-                            <span className="mr-2">👖</span>
-                            <span>Pants</span>
-                          </DropdownMenuItem>
-                          <DropdownMenuItem>
-                            <span className="mr-2">👠</span>
-                            <span>Shoes</span>
-                          </DropdownMenuItem>
-                        </DropdownMenuSubContent>
-                      </DropdownMenuPortal>
                     </DropdownMenuSub>
 
                     <DropdownMenuSub>
                       <DropdownMenuSubTrigger className="pb-5 font-sans font-semibold px-4">
                         <span>Hats</span>
                       </DropdownMenuSubTrigger>
-                      <DropdownMenuPortal>
-                        <DropdownMenuSubContent>
-                          <DropdownMenuItem>
-                            <span className="mr-2">👗</span>
-                            <span>Dresses</span>
-                          </DropdownMenuItem>
-                          <DropdownMenuItem>
-                            <span className="mr-2">👖</span>
-                            <span>Pants</span>
-                          </DropdownMenuItem>
-                          <DropdownMenuItem>
-                            <span className="mr-2">👠</span>
-                            <span>Shoes</span>
-                          </DropdownMenuItem>
-                        </DropdownMenuSubContent>
-                      </DropdownMenuPortal>
                     </DropdownMenuSub>
 
                     <DropdownMenuItem className="pb-5 font-sans font-semibold px-4">

@@ -1,17 +1,23 @@
 import Header from "./Header";
 import Page from "./Page";
+
 function App() {
   return (
-    <div className="w-screen mx-auto">
-      <div className="hello-Bar items-center flex justify-center bg-black  p-2">
-        <p className="text-white">
-          FREE SHIPPING for orders over $300. Order today <span></span>
+    <div className="w-[100vh] md:w-[100vh] flex flex-col items-center mx-auto">
+      {/* Hello Bar */}
+      <div className="hello-Bar w-screen flex items-center justify-center bg-black p-2 text-center">
+        <p className="text-white text-sm sm:text-base md:text-lg">
+          FREE SHIPPING for orders over $300. Order today
         </p>
       </div>
-      <div className="Header sticky w-screen mx-auto top-0 flex items-center justify-center bg-white">
+
+      {/* Header Section */}
+      <div className="Header sticky w-screen top-0 flex items-center justify-center bg-white">
         <Header />
       </div>
-      <div className="flex justify-center items-center">
+
+      {/* Main Page Content */}
+      <div className="flex justify-center items-center w-full px-4 sm:px-8 md:px-16 py-6">
         <Page />
       </div>
     </div>
