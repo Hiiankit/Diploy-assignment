@@ -217,13 +217,14 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="bg-[#faf6ef] mt-5 py-5 w-full flex items-center justify-center">
-        <div className="flex w-[77rem] gap-10 ">
-          <div className="flex flex-col w-[60%]  font-sans justify-center">
-            <h1 className="text-6xl font-semibold flex mb-4 flex-col ">
+      <div className="bg-[#faf6ef] max-w-[350px] md:max-w-full my-5 py-5 w-full flex items-center justify-center">
+        <div className="flex flex-col-reverse md:flex-row w-full md:w-[77rem] gap-10">
+          {/* Content Section */}
+          <div className="flex flex-col w-full md:w-[55%] px-4 font-sans justify-center">
+            <h1 className=" text-3xl md:text-6xl font-semibold flex mb-4 flex-col ">
               Meet GelatoConnect at Printing United
             </h1>
-            <p className="text-[16px] mb-2 font-extralight">
+            <p className="text-[16px]  mb-2 font-extralight">
               Meet us at Printing United from September 10-12 in Las Vegas. Book
               your meeting slot to discover the innovative ways GelatoConnect is
               transforming the landscape and driving success for businesses like
@@ -233,50 +234,59 @@ export default function Page() {
               <Button className="rounded-full">Book a meeting</Button>
             </div>
           </div>
-          <div>
+          <div className="flex justify-center md:justify-end w-full md:w-auto">
             <img src={printing} width={800} />
           </div>
         </div>
       </div>
 
       <div className="bg-black w-screen">
-        <div className="w-[77rem] mx-auto">
-          <div className="flex py-5 justify-between">
+        <div className="w-full md:w-[77rem] mx-auto">
+          {/* Header Section */}
+          <div className="flex flex-col md:flex-row py-5 justify-between items-center">
             <div>
-              <img src={logo} className="w-[130px]" />
+              <img src={logo} className="w-[130px]" alt="Logo" />
             </div>
-            <div className=" flex gap-8  items-center mr-10  ">
-              <h1 className="text-white text-[16px]">Find Gelato on:</h1>
-              <GrInstagram className="text-white size-5 " />
-              <FaFacebook className="text-white size-5" />
-              <FaTiktok className="text-white size-5" />
-              <FaLinkedinIn className="text-white size-5" />
-              <RiYoutubeLine className="text-white size-5" />
+            <div className="flex gap-4 md:gap-8 items-center mt-4 md:mt-0">
+              <h1 className="text-white text-[14px] md:text-[16px]">
+                Find Gelato on:
+              </h1>
+              <GrInstagram className="text-white text-xl" />
+              <FaFacebook className="text-white text-xl" />
+              <FaTiktok className="text-white text-xl" />
+              <FaLinkedinIn className="text-white text-xl" />
+              <RiYoutubeLine className="text-white text-xl" />
             </div>
           </div>
-          <div className="flex">
-            <div className="flex  gap-4 flex-col mr-[48px]">
-              <span className="text-white w-[360px] text-[12px]">
+
+          {/* Content Section */}
+          <div className="flex flex-col md:flex-row">
+            {/* Left Section */}
+            <div className="flex flex-col gap-4 mr-0 md:mr-[48px] text-white w-full md:w-[360px]">
+              <h1 className="text-[12px]">
                 Gelato has created the world's largest network for local
-                production and distribution of customized products. Together we
-                bring creativity to life - and into business.
-              </span>
+                production and distribution of customized products.
+              </h1>
+              <h1 className="text-[12px]">
+                Together we bring creativity to life - and into business.
+              </h1>
               <div>
                 <Button className="rounded-full bg-white text-black">
                   Get started
                 </Button>
               </div>
-              <p>Get the app</p>
+              <p className="text-[12px]">Get the app</p>
               <div className="flex gap-3">
-                <img src={apple} />
-                <img src={play} />
+                <img src={apple} alt="Apple Store" />
+                <img src={play} alt="Google Play Store" />
               </div>
             </div>
 
-            <div className="text-white mr-[48px]">
+            {/* Print on Demand Section */}
+            <div className="text-white mr-[48px] mt-6 md:mt-0">
               <h1 className="text-[16px] mb-4">Print on demand</h1>
-              <div className="text-white space-y-1 text-[12px]">
-                <p>What is print on demand? </p>
+              <div className="space-y-1 text-[12px]">
+                <p>What is print on demand?</p>
                 <p>Product catalog</p>
                 <p>Shipping and delivery</p>
                 <p>Dropshipping products</p>
@@ -284,14 +294,15 @@ export default function Page() {
                 <p>White label products</p>
                 <p>Returns policy</p>
                 <p>Global, yet local</p>
-                <p>Susstainablity</p>
+                <p>Sustainability</p>
                 <p>Support</p>
               </div>
             </div>
 
-            <div className="text-white mr-[48px]">
+            {/* Integrations Section */}
+            <div className="text-white mr-[48px] mt-6 md:mt-0">
               <h1 className="text-[16px] mb-4">Integrations</h1>
-              <div className="text-white space-y-1 text-[12px]">
+              <div className="space-y-1 text-[12px]">
                 <p>Shopify</p>
                 <p>Etsy</p>
                 <p>WooCommerce</p>
@@ -302,9 +313,10 @@ export default function Page() {
               </div>
             </div>
 
-            <div className="text-white mr-[48px]">
-              <h1 className="text-[16px] mb-4">Start selling </h1>
-              <div className="text-white space-y-1 text-[12px]">
+            {/* Start Selling Section */}
+            <div className="text-white mr-[48px] mt-6 md:mt-0">
+              <h1 className="text-[16px] mb-4">Start selling</h1>
+              <div className="space-y-1 text-[12px]">
                 <p>Embroidery</p>
                 <p>Print on demand t-shirts</p>
                 <p>Print on demand hoodies</p>
@@ -321,9 +333,10 @@ export default function Page() {
               </div>
             </div>
 
-            <div className="text-white">
-              <h1 className="text-[16px] mb-4">Company </h1>
-              <div className="text-white space-y-1 text-[12px]">
+            {/* Company Section */}
+            <div className="text-white mt-6 md:mt-0">
+              <h1 className="text-[16px] mb-4">Company</h1>
+              <div className="space-y-1 text-[12px]">
                 <p>GelatoConnect</p>
                 <p>About Gelato</p>
                 <p>Leadership team</p>
@@ -338,16 +351,25 @@ export default function Page() {
             </div>
           </div>
 
-          <div className=" items-center box-content mx-auto pb-10">
-            <div className="flex justify-between items-center">
-              <div className="text-white text-[12px] flex gap-2">
-                <p className="">Contact us </p> | <p>Legal</p>|
-                <p>Privacy policy</p>|<p>Cookie policy</p>|<p>API terms</p>|
+          {/* Footer Section */}
+          <div className="w-full items-center box-content mx-auto pb-10">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <div className="text-white text-[12px] flex flex-wrap gap-2 text-center md:text-left">
+                <p>Contact us</p>
+                <p>|</p>
+                <p>Legal</p>
+                <p>|</p>
+                <p>Privacy policy</p>
+                <p>|</p>
+                <p>Cookie policy</p>
+                <p>|</p>
+                <p>API terms</p>
+                <p>|</p>
                 <p>Sitemap</p>
               </div>
-              <div className="border-white border-2 ">
-                <select className=" text-white px-2 py-1 border-none border-white border-2  bg-black">
-                  <option className="border-none ">Hindi</option>
+              <div className="border-white border-2 mt-4 md:mt-0">
+                <select className="text-white px-2 py-1 border-none bg-black">
+                  <option>Hindi</option>
                   <option>English</option>
                 </select>
               </div>

@@ -3,7 +3,7 @@ import Page from "./Page";
 
 function App() {
   return (
-    <div className="w-[100vh] md:w-[100vh] flex flex-col items-center mx-auto">
+    <div className=" flex flex-col items-center mx-auto">
       {/* Hello Bar */}
       <div className="hello-Bar w-screen flex items-center justify-center bg-black p-2 text-center">
         <p className="text-white text-sm sm:text-base md:text-lg">
