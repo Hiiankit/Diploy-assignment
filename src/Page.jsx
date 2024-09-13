@@ -159,47 +159,59 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="bg-[#faf6ef] my-5 py-5 w-full flex items-center justify-center">
-        <div className="flex w-[77rem] gap-10 ">
-          <div className="flex flex-col w-[55%]  font-sans justify-center">
+      <div className="bg-[#faf6ef] max-w-[350px] md:max-w-full my-5 py-5 w-full flex items-center justify-center">
+        <div className="flex flex-col-reverse md:flex-row w-full md:w-[77rem] gap-10">
+          {/* Content Section */}
+          <div className="flex flex-col w-full md:w-[55%] px-4 font-sans justify-center">
             <p className="text-lg mb-2 font-medium">
               For print on demand sellers
             </p>
-            <h1 className="text-6xl font-semibold flex mb-4 flex-col ">
+            <h1 className="text-3xl md:text-6xl  font-semibold flex mb-4   md:flex-col">
               Accelerate business growth with innovative design tools and apps
             </h1>
-            <p className="text-2xl mb-2 font-medium">
+            <p className="text-xl md:text-2xl mb-2 font-medium">
               See how our cutting-edge solutions can help you reach new
               customers and maximize your profits.
             </p>
             <div className="mt-3">
-              <Button className="rounded-full">Get started</Button>
+              <Button className="rounded-full bg-black text-white">
+                Get started
+              </Button>
             </div>
           </div>
-          <div>
-            <img src={anim} width={800} />
+
+          {/* Image Section */}
+          <div className="flex justify-center md:justify-end w-full md:w-auto">
+            <img src={anim} className="w-full md:w-[800px]" alt="Animation" />
           </div>
         </div>
       </div>
 
       <div className="my-5 py-5 w-full flex items-center justify-center">
-        <div className="flex w-[77rem] gap-10">
-          <div className="flex  justify-center items-center">
-            <div className="flex ">
-              <img src={anim2} width={700} />
-            </div>
-            <div className="flex flex-col w-[55%] pt-6 pr-5 font-sans justify-center">
-              <p className="text-xl mb-2 ">For print producers</p>
-              <h1 className="text-6xl mb-4 pt-4 font-semibold ">
-                GelatoConnect
-              </h1>
-              <p className="text-[26px] mt-2 ">
-                Elevate efficiency, cut costs, and seamlessly automate with our
-                all-in-one software solution for the print industry
-              </p>
-              <div className="mt-3 pt-3">
-                <Button className="rounded-full">Learn more</Button>
-              </div>
+        <div className="flex flex-col md:flex-row w-full md:w-[77rem] gap-10 px-4">
+          {/* Image Section */}
+          <div className="flex justify-center items-center w-full md:w-[45%]">
+            <img
+              src={anim2}
+              className="w-[310px] md:w-[700px]"
+              alt="Animation"
+            />
+          </div>
+
+          {/* Content Section */}
+          <div className="flex flex-col w-full max-w-[300px]  mx-auto  md:max-w-[700] pt-6 pr-5 font-sans justify-center">
+            <p className="text-lg md:text-xl mb-2">For print producers</p>
+            <h1 className="text-4xl md:text-6xl mb-4 pt-4 font-semibold">
+              GelatoConnect
+            </h1>
+            <p className="text-base font-normal text-[20px] md:text-[26px] mt-2">
+              Elevate efficiency, cut costs, and seamlessly automate with our
+              all-in-one software solution for the print industry.
+            </p>
+            <div className="mt-3 pt-3">
+              <Button className="rounded-full bg-black text-white hover:text-zinc-300">
+                Learn more
+              </Button>
             </div>
           </div>
         </div>
